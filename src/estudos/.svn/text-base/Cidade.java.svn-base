@@ -1,0 +1,34 @@
+package estudos;
+
+public class Cidade {
+	
+	private Integer id;
+	
+	private String nome;
+	
+	private Estado est;
+
+	public Estado getEst() {
+		return est;
+	}
+
+	public void setEst(Estado est) {
+		this.est = est;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="estudos">
+	<class name="Livro" table="LIVRO">
+		<id name="codigo" column="codigo" type="integer">
+			<generator class="sequence">
+				<param name="sequence">livro_id_sequence</param>
+			</generator>
+		</id>
+		<property name="nome" column="nome" type="string" />
+		<property name="autor" column="autor" type="string"/>
+		<property name="isbn" column="isbn" type="string"/>
+		<property name="paginas" column="paginas" type="string"/>
+		<property name="edicao" column="edicao" type="string"/>
+		<property name="preco" column="preco" type="string"/>
+		<property name="tipoCapa" column="tipocapa" type="string"/>
+		<property name="linguagem" column="linguagem" type="string"/>
+		<many-to-one name="editora" column="editora" class="Editora"/>
+	</class>
+</hibernate-mapping>

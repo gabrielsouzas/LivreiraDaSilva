@@ -1,0 +1,10 @@
+CREATE TABLE cidade (
+    cidade_codigo integer NOT NULL,
+    cidade_nome character varying(100)
+);
+
+INSERT INTO cidade (cidade_codigo, cidade_nome) VALUES (1, 'Assis');
+
+ALTER TABLE ONLY cidade
+    ADD CONSTRAINT cidade_codigo_pk PRIMARY KEY (cidade_codigo);
+

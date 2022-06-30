@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="estudos">
+	<class name="Editora" table="EDITORA">
+		<id name="codigo" column="CODIGO" type="integer">
+			<generator class="assigned"/>
+		</id>
+		<property name="razaoSocial" column="RAZAOSOCIAL" type="string" />
+		<property name="nomeFantasia" type="string"/>
+		<property name="cnpj" type="string"/>
+		<property name="rua" type="string"/>
+		<property name="numero" type="string"/>
+		<property name="cep" type="string"/>
+		<property name="cidade" type="string"/>
+		<property name="estado" type="string"/>
+		<property name="pais" type="string"/>
+		<bag name="livros" table="livro" cascade="all">
+				<key column="editora"></key>
+				<one-to-many class="Livro" />
+		</bag>
+	</class>
+</hibernate-mapping>

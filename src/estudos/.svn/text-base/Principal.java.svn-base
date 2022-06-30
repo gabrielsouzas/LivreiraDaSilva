@@ -1,0 +1,39 @@
+package estudos;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+@SuppressWarnings("deprecation")
+public abstract class Principal {
+
+	public static void main(String[] args) {
+		try {
+
+			Configuration cfg = new Configuration();
+			cfg.setProperty("hibernate.connection.driver_class",
+					"org.postgresql.Driver");
+			cfg.setProperty("hibernate.connection.username", "postgres");
+			cfg.setProperty("hibernate.connection.password", "masterkey");
+			cfg.setProperty("hibernate.connection.url",
+					"jdbc:postgresql:estudos");
+			cfg.setProperty("hibernate.dialect",
+					"org.hibernate.dialect.PostgreSQLDialect");
+			cfg.setProperty("hibernate.show_sql", "true");
+			cfg.addClass(Cidade.class);
+			cfg.addClass(Estado.class);
+
+			SessionFactory sessionFactory = cfg.buildSessionFactory();
+			Session session = sessionFactory.openSession();
+
+			Estado e = (Estado) session.load(Estado.class, 1);
+			System.out.println(e.getNome());
+			for (Cidade c : e.getCids()) {
+				System.out.println(c.getNome());
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}
